@@ -87,7 +87,7 @@ print(str(LiczenieWPionie(dane, 4, 1)) + " " + str(round(percentage(dane, 4, 1),
 print(str(LiczenieWPionie(dane, 4, 1)) + " " + str(round(percentage(dane, 4, 1), 0)) + " versicolor")
 print(str(LiczenieWPionie(dane, 4, 1)) + " " + str(round(percentage(dane, 4, 1), 0)) + " virginica")
 fig, ax = plt.subplots()
-
+asd
 x = [0,1,2]
 asd = [LiczenieWPionie(dane,4,0),LiczenieWPionie(dane,4,1),LiczenieWPionie(dane,4,2)]
 
