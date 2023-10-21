@@ -35,7 +35,6 @@
 import csv
 import matplotlib.pyplot as plt
 
-plt.style.use('_mpl-gallery')
 
 
 def suma(dana, pion):
@@ -49,7 +48,7 @@ def LiczenieWPionie(dana, pion, szukana):
     znaleziono = 0
     for wiersz in dana:
         if (wiersz[pion] == szukana):
-            znaleziono += wiersz[pion]
+            znaleziono = znaleziono+1
     return znaleziono
 
 
@@ -83,12 +82,12 @@ with open("./data.csv", newline='') as plik_csv:
 
 print(sizeOf(dane))
 print(round(LiczenieWPionie(dane, 4, 1), 2))
-print(str(LiczenieWPionie(dane, 4, 1)) + " " + str(round(percentage(dane, 4, 1), 0)) + " setosa")
+print(str(LiczenieWPionie(dane, 4, 0)) + " " + str(round(percentage(dane, 4, 0), 0)) + " setosa")
 print(str(LiczenieWPionie(dane, 4, 1)) + " " + str(round(percentage(dane, 4, 1), 0)) + " versicolor")
-print(str(LiczenieWPionie(dane, 4, 1)) + " " + str(round(percentage(dane, 4, 1), 0)) + " virginica")
+print(str(LiczenieWPionie(dane, 4, 2)) + " " + str(round(percentage(dane, 4, 2), 0)) + " virginica")
 fig, ax = plt.subplots()
-asd
-x = [0,1,2]
+
+x = ["a","b","c"]
 asd = [LiczenieWPionie(dane,4,0),LiczenieWPionie(dane,4,1),LiczenieWPionie(dane,4,2)]
 
 
