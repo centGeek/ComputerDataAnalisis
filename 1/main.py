@@ -21,7 +21,6 @@ with open("./data.csv", newline='') as plik_csv:
         wiersz_float = [float(wartość) for wartość in wiersz]
         dane.append(wiersz_float)
 
-
 setosa_count = funkcje.LiczenieWPionie(dane, 4, 0)
 versicolor_count = funkcje.LiczenieWPionie(dane, 4, 1)
 virginica_count = funkcje.LiczenieWPionie(dane, 4, 2)
@@ -35,7 +34,6 @@ min_dlugosc_dzialki_kielicha = funkcje.szukajMinimum(dane, 0)
 min_szerokosc_dzialki_kielicha = funkcje.szukajMinimum(dane, 1)
 min_dlugosc_platka = funkcje.szukajMinimum(dane, 2)
 min_szerokosc_platka = funkcje.szukajMinimum(dane, 3)
-
 
 total_count = setosa_count + versicolor_count + virginica_count
 setosa_percentage = (setosa_count * 100 / total_count)
@@ -74,10 +72,10 @@ dlugosc_platka_avg = funkcje.liczSredniaArytmetyczna(dane, 2)
 szerokosc_platka_avg = funkcje.liczSredniaArytmetyczna(dane, 2)
 data = [
     ["Cecha", "Minimum", "Śr. arytmetyczna", "Mediana (Q1 - Q3)", "Maksimum"],
-    ["Długość działki kielicha (cm)", min_dlugosc_dzialki_kielicha,dlugosc_dzialki_avg, "5.80 (5.10 - 6.40)", "7.90"],
+    ["Długość działki kielicha (cm)", min_dlugosc_dzialki_kielicha, dlugosc_dzialki_avg, "5.80 (5.10 - 6.40)", "7.90"],
     ["Szerokość działki kielicha (cm)", min_szerokosc_dzialki_kielicha, szerokosc_dzialki_avg, "", ""],
     ["Długość płatka (cm)", min_dlugosc_platka, dlugosc_platka_avg, "", ""],
-    ["Szerokość płatka (cm)", min_szerokosc_platka,szerokosc_platka_avg, "", ""]
+    ["Szerokość płatka (cm)", min_szerokosc_platka, szerokosc_platka_avg, "", ""]
 ]
 
 # Tworzenie wykresu
@@ -87,6 +85,7 @@ table = ax.table(cellText=data, loc='center')
 table.auto_set_font_size(False)
 table.set_fontsize(10)
 table.scale(1, 1.5)
+
 
 table.auto_set_column_width([0, 1, 2, 3, 4])
 
