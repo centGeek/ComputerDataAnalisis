@@ -1,86 +1,8 @@
-# import csv
-#
-# data = list(csv.reader(open("./data.csv")))
-# print(data[1][0])
-#
-# for miejsce in data:
-#     miejsce[0] = float(miejsce[0])
-# for miejsce in data:
-#     miejsce[1] = float(miejsce[1])
-# for miejsce in data:
-#     miejsce[2] = float(miejsce[2])
-# for miejsce in data:
-#     miejsce[3] = float(miejsce[3])
-# for miejsce in data:
-#     miejsce[4] = float(miejsce[4])
-#
-# for aaa in data:
-#     for bbb in aaa:
-#         print(aaa)
-#
-# Suma = 0.0                                              czy mozna to usunac Maćku?
-#
-# for aaa in data:
-#     Suma += aaa[0]
-#
-# print(Suma)
-
-# array123 = [int(numeric_string) for numeric_string in data]
-
-# asd = (data[1][0]+data[1][1])
-# for row in data:
-#   ads+=row[0]
-
-
 import csv
 import matplotlib.pyplot as plt
-import numpy as np
+from FunkcjeLiczace import *
 
-
-
-def suma(dana, pion):
-    suma = 0.0
-    for wiersz in dana:
-        suma += wiersz[pion]
-    return suma
-
-
-def LiczenieWPionie(dana, pion, szukana):
-    znaleziono = 0
-    for wiersz in dana:
-        if (wiersz[pion] == szukana):
-            znaleziono = znaleziono+1
-    return znaleziono
-def szukajMaksimum(dana, pion):
-    znaleziono = 0
-    for wiersz in dana:
-        if (wiersz[pion]>znaleziono):
-             znaleziono = wiersz[pion]
-    return znaleziono
-def szukajMinimum(dana, pion):
-    znaleziono = 100
-    for wiersz in dana:
-        if (wiersz[pion]<znaleziono):
-            znaleziono = wiersz[pion]
-    return znaleziono
-
-def liczSredniaArytmetyczna(dana, pion):
-    wartosci = [wiersz[pion] for wiersz in dana]
-    srednia = round(np.mean(wartosci), 2)
-    odchylenie_std = round(np.std(wartosci), 2)
-    return srednia, odchylenie_std
-
-def sizeOf(dana):
-    size = 0
-    for _ in dana:
-        size += 1
-    return size
-
-
-
-def percentage(dana, pion, szukana):
-    return (LiczenieWPionie(dana, pion, szukana)) * 100 / sizeOf(dana)
-
+funkcje = FunkcjeLiczace
 
 dane = []
 
@@ -100,19 +22,19 @@ with open("./data.csv", newline='') as plik_csv:
         dane.append(wiersz_float)
 
 
-setosa_count = LiczenieWPionie(dane, 4, 0)
-versicolor_count = LiczenieWPionie(dane, 4, 1)
-virginica_count = LiczenieWPionie(dane, 4, 2)
+setosa_count = funkcje.LiczenieWPionie(dane, 4, 0)
+versicolor_count = funkcje.LiczenieWPionie(dane, 4, 1)
+virginica_count = funkcje.LiczenieWPionie(dane, 4, 2)
 
-maks_dlugosc_dzialki_kielicha = szukajMaksimum(dane, 0)
-maks_szerokosc_dzialki_kielicha = szukajMaksimum(dane, 1)
-maks_dlugosc_platka = szukajMaksimum(dane, 2)
-maks_szerokosc_platka = szukajMaksimum(dane, 3)
+maks_dlugosc_dzialki_kielicha = funkcje.szukajMaksimum(dane, 0)
+maks_szerokosc_dzialki_kielicha = funkcje.szukajMaksimum(dane, 1)
+maks_dlugosc_platka = funkcje.szukajMaksimum(dane, 2)
+maks_szerokosc_platka = funkcje.szukajMaksimum(dane, 3)
 
-min_dlugosc_dzialki_kielicha = szukajMinimum(dane, 0)
-min_szerokosc_dzialki_kielicha = szukajMinimum(dane, 1)
-min_dlugosc_platka = szukajMinimum(dane, 2)
-min_szerokosc_platka = szukajMinimum(dane, 3)
+min_dlugosc_dzialki_kielicha = funkcje.szukajMinimum(dane, 0)
+min_szerokosc_dzialki_kielicha = funkcje.szukajMinimum(dane, 1)
+min_dlugosc_platka = funkcje.szukajMinimum(dane, 2)
+min_szerokosc_platka = funkcje.szukajMinimum(dane, 3)
 
 
 total_count = setosa_count + versicolor_count + virginica_count
@@ -128,8 +50,8 @@ virginica_percentage = (virginica_count * 100 / total_count)
 print(f"setosa: {setosa_count} ({setosa_percentage:.2f}%)")
 print(f"versicolor: {versicolor_count} ({versicolor_percentage:.2f}%)")
 print(f"virginica: {virginica_count} ({virginica_percentage:.2f}%)")
-print(sizeOf(dane))
-print(round(LiczenieWPionie(dane, 4, 1), 2))
+print(funkcje.sizeOf(dane))
+print(round(funkcje.LiczenieWPionie(dane, 4, 1), 2))
 
 fig, ax = plt.subplots()
 
@@ -145,11 +67,11 @@ for i, v in enumerate(counts):
 plt.show()
 
 print(dane[0][0])
-print(suma(dane, 0))
-dlugosc_dzialki_avg = liczSredniaArytmetyczna(dane, 0)
-szerokosc_dzialki_avg = liczSredniaArytmetyczna(dane, 1)
-dlugosc_platka_avg = liczSredniaArytmetyczna(dane, 2)
-szerokosc_platka_avg = liczSredniaArytmetyczna(dane, 2)
+print(funkcje.suma(dane, 0))
+dlugosc_dzialki_avg = funkcje.liczSredniaArytmetyczna(dane, 0)
+szerokosc_dzialki_avg = funkcje.liczSredniaArytmetyczna(dane, 1)
+dlugosc_platka_avg = funkcje.liczSredniaArytmetyczna(dane, 2)
+szerokosc_platka_avg = funkcje.liczSredniaArytmetyczna(dane, 2)
 data = [
     ["Cecha", "Minimum", "Śr. arytmetyczna", "Mediana (Q1 - Q3)", "Maksimum"],
     ["Długość działki kielicha (cm)", min_dlugosc_dzialki_kielicha,dlugosc_dzialki_avg, "5.80 (5.10 - 6.40)", "7.90"],
