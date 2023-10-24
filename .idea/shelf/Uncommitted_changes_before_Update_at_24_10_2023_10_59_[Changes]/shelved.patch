@@ -1,0 +1,136 @@
+Index: 1/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># import csv\r\n#\r\n# data = list(csv.reader(open(\"./data.csv\")))\r\n# print(data[1][0])\r\n#\r\n# for miejsce in data:\r\n#     miejsce[0] = float(miejsce[0])\r\n# for miejsce in data:\r\n#     miejsce[1] = float(miejsce[1])\r\n# for miejsce in data:\r\n#     miejsce[2] = float(miejsce[2])\r\n# for miejsce in data:\r\n#     miejsce[3] = float(miejsce[3])\r\n# for miejsce in data:\r\n#     miejsce[4] = float(miejsce[4])\r\n#\r\n# for aaa in data:\r\n#     for bbb in aaa:\r\n#         print(aaa)\r\n#\r\n# Suma = 0.0                                              czy mozna to usunac Maćku?\r\n#\r\n# for aaa in data:\r\n#     Suma += aaa[0]\r\n#\r\n# print(Suma)\r\n\r\n# array123 = [int(numeric_string) for numeric_string in data]\r\n\r\n# asd = (data[1][0]+data[1][1])\r\n# for row in data:\r\n#   ads+=row[0]\r\n\r\n\r\nimport csv\r\nimport matplotlib.pyplot as plt\r\nimport numpy as np\r\n\r\n\r\n\r\ndef suma(dana, pion):\r\n    suma = 0.0\r\n    for wiersz in dana:\r\n        suma += wiersz[pion]\r\n    return suma\r\n\r\n\r\ndef LiczenieWPionie(dana, pion, szukana):\r\n    znaleziono = 0\r\n    for wiersz in dana:\r\n        if (wiersz[pion] == szukana):\r\n            znaleziono = znaleziono+1\r\n    return znaleziono\r\ndef szukajMaksimum(dana, pion):\r\n    znaleziono = 0\r\n    for wiersz in dana:\r\n        if (wiersz[pion]>znaleziono):\r\n             znaleziono = wiersz[pion]\r\n    return znaleziono\r\ndef szukajMinimum(dana, pion):\r\n    znaleziono = 100\r\n    for wiersz in dana:\r\n        if (wiersz[pion]<znaleziono):\r\n            znaleziono = wiersz[pion]\r\n    return znaleziono\r\n\r\ndef liczSredniaArytmetyczna(dana, pion):\r\n    wartosci = [wiersz[pion] for wiersz in dana]\r\n    srednia = round(np.mean(wartosci), 2)\r\n    odchylenie_std = round(np.std(wartosci), 2)\r\n    return srednia, odchylenie_std\r\n\r\ndef sizeOf(dana):\r\n    size = 0\r\n    for _ in dana:\r\n        size += 1\r\n    return size\r\n\r\n\r\n\r\ndef percentage(dana, pion, szukana):\r\n    return (LiczenieWPionie(dana, pion, szukana)) * 100 / sizeOf(dana)\r\n\r\n\r\ndane = []\r\n\r\n# 1. długość działki kielicha (ang. sepal length) [cm]\r\n# 2. szerokość działki kielicha (ang. sepal width) [cm]\r\n# 3. długość płatka (ang. petal length) [cm]\r\n# 4. szerokość płatka (ang. petal width) [cm]\r\n# 5. gatunek (ang. species):\r\n#    0 - setosa\r\n#    1 - versicolor\r\n#    2 - virginica\r\n\r\nwith open(\"./data.csv\", newline='') as plik_csv:\r\n    czytnik_csv = csv.reader(plik_csv)\r\n    for wiersz in czytnik_csv:\r\n        wiersz_float = [float(wartość) for wartość in wiersz]\r\n        dane.append(wiersz_float)\r\n\r\n\r\nsetosa_count = LiczenieWPionie(dane, 4, 0)\r\nversicolor_count = LiczenieWPionie(dane, 4, 1)\r\nvirginica_count = LiczenieWPionie(dane, 4, 2)\r\n\r\nmaks_dlugosc_dzialki_kielicha = szukajMaksimum(dane, 0)\r\nmaks_szerokosc_dzialki_kielicha = szukajMaksimum(dane, 1)\r\nmaks_dlugosc_platka = szukajMaksimum(dane, 2)\r\nmaks_szerokosc_platka = szukajMaksimum(dane, 3)\r\n\r\nmin_dlugosc_dzialki_kielicha = szukajMinimum(dane, 0)\r\nmin_szerokosc_dzialki_kielicha = szukajMinimum(dane, 1)\r\nmin_dlugosc_platka = szukajMinimum(dane, 2)\r\nmin_szerokosc_platka = szukajMinimum(dane, 3)\r\n\r\n\r\ntotal_count = setosa_count + versicolor_count + virginica_count\r\nsetosa_percentage = (setosa_count * 100 / total_count)\r\nversicolor_percentage = (versicolor_count * 100 / total_count)\r\nvirginica_percentage = (virginica_count * 100 / total_count)\r\n\r\n# dlugosc_dzialki_medi = mediana(dane, 0)\r\n# szerokosc_dzialki_medi = mediana(dane, 1)\r\n# dlugosc_platka_medi = mediana(dane, 2)\r\n# szerokosc_platka_medi = mediana(dane, 3)\r\n\r\nprint(f\"setosa: {setosa_count} ({setosa_percentage:.2f}%)\")\r\nprint(f\"versicolor: {versicolor_count} ({versicolor_percentage:.2f}%)\")\r\nprint(f\"virginica: {virginica_count} ({virginica_percentage:.2f}%)\")\r\nprint(sizeOf(dane))\r\nprint(round(LiczenieWPionie(dane, 4, 1), 2))\r\n\r\nfig, ax = plt.subplots()\r\n\r\nx = [\"setosa\", \"versicolor\", \"virginica\"]\r\ncounts = [setosa_count, versicolor_count, virginica_count]\r\npercentages = [setosa_percentage, versicolor_percentage, virginica_percentage]\r\n\r\nax.bar(x, counts, width=0.5, edgecolor=\"white\", linewidth=0.7, color='red')\r\nax.set_ylabel(\"Liczba poszczególnych gatunków\")\r\nfor i, v in enumerate(counts):\r\n    ax.text(i, v + 5, f\"{percentages[i]:.2f}%\", ha=\"center\", va=\"bottom\")\r\n\r\nplt.show()\r\n\r\nprint(dane[0][0])\r\nprint(suma(dane, 0))\r\ndlugosc_dzialki_avg = liczSredniaArytmetyczna(dane, 0)\r\nszerokosc_dzialki_avg = liczSredniaArytmetyczna(dane, 1)\r\ndlugosc_platka_avg = liczSredniaArytmetyczna(dane, 2)\r\nszerokosc_platka_avg = liczSredniaArytmetyczna(dane, 2)\r\ndata = [\r\n    [\"Cecha\", \"Minimum\", \"Śr. arytmetyczna\", \"Mediana (Q1 - Q3)\", \"Maksimum\"],\r\n    [\"Długość działki kielicha (cm)\", min_dlugosc_dzialki_kielicha,dlugosc_dzialki_avg, \"5.80 (5.10 - 6.40)\", \"7.90\"],\r\n    [\"Szerokość działki kielicha (cm)\", min_szerokosc_dzialki_kielicha, szerokosc_dzialki_avg, \"\", \"\"],\r\n    [\"Długość płatka (cm)\", min_dlugosc_platka, dlugosc_platka_avg, \"\", \"\"],\r\n    [\"Szerokość płatka (cm)\", min_szerokosc_platka,szerokosc_platka_avg, \"\", \"\"]\r\n]\r\n\r\n# Tworzenie wykresu\r\nfig, ax = plt.subplots(figsize=(10, 6))\r\n# Tworzenie tabeli\r\ntable = ax.table(cellText=data, loc='center')\r\ntable.auto_set_font_size(False)\r\ntable.set_fontsize(10)\r\ntable.scale(1, 1.5)\r\n\r\ntable.auto_set_column_width([0, 1, 2, 3, 4])\r\n\r\nax.axis('off')\r\n\r\nplt.show()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/1/main.py b/1/main.py
+--- a/1/main.py	(revision 49c9f99eec52630b80d121d17f148d417324ffc9)
++++ b/1/main.py	(date 1698136599628)
+@@ -1,43 +1,8 @@
+-# import csv
+-#
+-# data = list(csv.reader(open("./data.csv")))
+-# print(data[1][0])
+-#
+-# for miejsce in data:
+-#     miejsce[0] = float(miejsce[0])
+-# for miejsce in data:
+-#     miejsce[1] = float(miejsce[1])
+-# for miejsce in data:
+-#     miejsce[2] = float(miejsce[2])
+-# for miejsce in data:
+-#     miejsce[3] = float(miejsce[3])
+-# for miejsce in data:
+-#     miejsce[4] = float(miejsce[4])
+-#
+-# for aaa in data:
+-#     for bbb in aaa:
+-#         print(aaa)
+-#
+-# Suma = 0.0                                              czy mozna to usunac Maćku?
+-#
+-# for aaa in data:
+-#     Suma += aaa[0]
+-#
+-# print(Suma)
+-
+-# array123 = [int(numeric_string) for numeric_string in data]
+-
+-# asd = (data[1][0]+data[1][1])
+-# for row in data:
+-#   ads+=row[0]
+-
+-
+ import csv
+ import matplotlib.pyplot as plt
+ import numpy as np
+ 
+ 
+-
+ def suma(dana, pion):
+     suma = 0.0
+     for wiersz in dana:
+@@ -49,27 +14,33 @@
+     znaleziono = 0
+     for wiersz in dana:
+         if (wiersz[pion] == szukana):
+-            znaleziono = znaleziono+1
++            znaleziono = znaleziono + 1
+     return znaleziono
++
++
+ def szukajMaksimum(dana, pion):
+     znaleziono = 0
+     for wiersz in dana:
+-        if (wiersz[pion]>znaleziono):
+-             znaleziono = wiersz[pion]
++        if (wiersz[pion] > znaleziono):
++            znaleziono = wiersz[pion]
+     return znaleziono
++
++
+ def szukajMinimum(dana, pion):
+     znaleziono = 100
+     for wiersz in dana:
+-        if (wiersz[pion]<znaleziono):
++        if (wiersz[pion] < znaleziono):
+             znaleziono = wiersz[pion]
+     return znaleziono
+ 
++
+ def liczSredniaArytmetyczna(dana, pion):
+     wartosci = [wiersz[pion] for wiersz in dana]
+     srednia = round(np.mean(wartosci), 2)
+     odchylenie_std = round(np.std(wartosci), 2)
+     return srednia, odchylenie_std
+ 
++
+ def sizeOf(dana):
+     size = 0
+     for _ in dana:
+@@ -77,7 +48,6 @@
+     return size
+ 
+ 
+-
+ def percentage(dana, pion, szukana):
+     return (LiczenieWPionie(dana, pion, szukana)) * 100 / sizeOf(dana)
+ 
+@@ -99,7 +69,6 @@
+         wiersz_float = [float(wartość) for wartość in wiersz]
+         dane.append(wiersz_float)
+ 
+-
+ setosa_count = LiczenieWPionie(dane, 4, 0)
+ versicolor_count = LiczenieWPionie(dane, 4, 1)
+ virginica_count = LiczenieWPionie(dane, 4, 2)
+@@ -114,7 +83,6 @@
+ min_dlugosc_platka = szukajMinimum(dane, 2)
+ min_szerokosc_platka = szukajMinimum(dane, 3)
+ 
+-
+ total_count = setosa_count + versicolor_count + virginica_count
+ setosa_percentage = (setosa_count * 100 / total_count)
+ versicolor_percentage = (versicolor_count * 100 / total_count)
+@@ -152,10 +120,10 @@
+ szerokosc_platka_avg = liczSredniaArytmetyczna(dane, 2)
+ data = [
+     ["Cecha", "Minimum", "Śr. arytmetyczna", "Mediana (Q1 - Q3)", "Maksimum"],
+-    ["Długość działki kielicha (cm)", min_dlugosc_dzialki_kielicha,dlugosc_dzialki_avg, "5.80 (5.10 - 6.40)", "7.90"],
++    ["Długość działki kielicha (cm)", min_dlugosc_dzialki_kielicha, dlugosc_dzialki_avg, "5.80 (5.10 - 6.40)", "7.90"],
+     ["Szerokość działki kielicha (cm)", min_szerokosc_dzialki_kielicha, szerokosc_dzialki_avg, "", ""],
+     ["Długość płatka (cm)", min_dlugosc_platka, dlugosc_platka_avg, "", ""],
+-    ["Szerokość płatka (cm)", min_szerokosc_platka,szerokosc_platka_avg, "", ""]
++    ["Szerokość płatka (cm)", min_szerokosc_platka, szerokosc_platka_avg, "", ""]
+ ]
+ 
+ # Tworzenie wykresu
+@@ -170,4 +138,4 @@
+ 
+ ax.axis('off')
+ 
+-plt.show()
+\ No newline at end of file
++plt.show()
