@@ -74,9 +74,9 @@ dlugosc_platka_avg = funkcje.liczSredniaArytmetyczna(dane, 2)
 szerokosc_platka_avg = funkcje.liczSredniaArytmetyczna(dane, 2)
 data = [
     ["Cecha", "Minimum", "Śr. arytmetyczna", "Mediana (Q1 - Q3)", "Maksimum"],
-    ["Długość działki kielicha (cm)", min_dlugosc_dzialki_kielicha,dlugosc_dzialki_avg, "5.80 (5.10 - 6.40)", "7.90"],
-    ["Szerokość działki kielicha (cm)", min_szerokosc_dzialki_kielicha, szerokosc_dzialki_avg, "", ""],
-    ["Długość płatka (cm)", min_dlugosc_platka, dlugosc_platka_avg, "", ""],
+    ["Długość działki kielicha (cm)", min_dlugosc_dzialki_kielicha,dlugosc_dzialki_avg, "5.80 (5.10 - 6.40)", maks_dlugosc_dzialki_kielicha],
+    ["Szerokość działki kielicha (cm)", min_szerokosc_dzialki_kielicha, szerokosc_dzialki_avg, "", maks_szerokosc_dzialki_kielicha],
+    ["Długość płatka (cm)", min_dlugosc_platka, dlugosc_platka_avg, "", maks_szerokosc_dzialki_kielicha],
     ["Szerokość płatka (cm)", min_szerokosc_platka,szerokosc_platka_avg, "", ""]
 ]
 

@@ -30,7 +30,21 @@ class FunkcjeLiczace:
                 znaleziono = wiersz[pion]
         return znaleziono
 
+    def sortowanie_babelkowe(lista):
+        n = len(lista)
+        for i in range(n):
+            zamiana = False
 
+            for j in range(0, n - i - 1):
+
+                if lista[j] > lista[j + 1]:
+                    lista[j], lista[j + 1] = lista[j + 1], lista[j]
+                    zamiana = True
+
+            if not zamiana:
+                break
+
+        return list
     def liczSredniaArytmetyczna(dana, pion):
         wartosci = [wiersz[pion] for wiersz in dana]
         srednia = round(np.mean(wartosci), 2)
