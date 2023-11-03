@@ -22,40 +22,12 @@ class HistogramySlupkowe:
 
         return histogram, przedzialy
 
-    def dlugoscDzialkiKielichaHistogram(dane):
-        histogram, przedzialy = HistogramySlupkowe.oblicz_histogram(dane, 0, krok=0.5)
+    def narysujHistogram(dane, xlabel, title, pion):
+        histogram, przedzialy = HistogramySlupkowe.oblicz_histogram(dane, pion, krok=0.5)
         szerokosc_slupkow = [przedzialy[i + 1] - przedzialy[i] for i in range(len(przedzialy) - 1)]
         punkty_slupkow = [przedzialy[i] + szerokosc_slupkow[i] / 2 for i in range(len(przedzialy) - 1)]
         plt.bar(punkty_slupkow, histogram, width=szerokosc_slupkow, edgecolor="white", align='center')
-        plt.xlabel("Długość (cm)")
+        plt.xlabel(xlabel)
         plt.ylabel("Liczebność")
-        plt.title("Długość działki kielicha")
-        plt.show()
-
-    def szerokoscDzialkiKielichaHistogram(dane):
-        histogram, przedzialy = HistogramySlupkowe.oblicz_histogram(dane, 1, krok=0.5)
-        szerokosc_slupkow = [przedzialy[i + 1] - przedzialy[i] for i in range(len(przedzialy) - 1)]
-        punkty_slupkow = [przedzialy[i] + szerokosc_slupkow[i] / 2 for i in range(len(przedzialy) - 1)]
-        plt.bar(punkty_slupkow, histogram, width=szerokosc_slupkow, edgecolor="white", align='center')
-        plt.xlabel("Szerokość (cm)")
-        plt.ylabel("Liczebność")
-        plt.title("Szerokość działki kielicha")
-        plt.show()
-    def dlugoscPlatkaHistogram(dane):
-        histogram, przedzialy = HistogramySlupkowe.oblicz_histogram(dane, 2, krok=0.5)
-        szerokosc_slupkow = [przedzialy[i + 1] - przedzialy[i] for i in range(len(przedzialy) - 1)]
-        punkty_slupkow = [przedzialy[i] + szerokosc_slupkow[i] / 2 for i in range(len(przedzialy) - 1)]
-        plt.bar(punkty_slupkow, histogram, width=szerokosc_slupkow, edgecolor="white", align='center')
-        plt.xlabel("Długość (cm)")
-        plt.ylabel("Liczebność")
-        plt.title("Długość działki kielicha")
-        plt.show()
-    def szerokoscPlatkaHistogram(dane):
-        histogram, przedzialy = HistogramySlupkowe.oblicz_histogram(dane, 3, krok=0.5)
-        szerokosc_slupkow = [przedzialy[i + 1] - przedzialy[i] for i in range(len(przedzialy) - 1)]
-        punkty_slupkow = [przedzialy[i] + szerokosc_slupkow[i] / 2 for i in range(len(przedzialy) - 1)]
-        plt.bar(punkty_slupkow, histogram, width=szerokosc_slupkow, edgecolor="white", align='center')
-        plt.xlabel("Szerokość (cm)")
-        plt.ylabel("Liczebność")
-        plt.title("Szerokość płatka")
+        plt.title(title)
         plt.show()

@@ -20,16 +20,17 @@ with open("./data.csv", newline='') as plik_csv:
     for wiersz in czytnik_csv:
         wiersz_float = [float(wartość) for wartość in wiersz]
         dane.append(wiersz_float)
-#import klas
+# import klas
 from Wykres1 import *
-from Wykres2 import *
+from Tabela1 import *
 from HistogramySlupkowe import *
 
-#generowanie tabel i wykresow
+# generowanie tabel i wykresow
 Wykres1.generuj_wykres(dane)
-Wykres2.generuj_tabele(dane)
+Tabela1.generuj_tabele(dane)
 
-HistogramySlupkowe.dlugoscDzialkiKielichaHistogram(dane)
-HistogramySlupkowe.szerokoscDzialkiKielichaHistogram(dane)
-HistogramySlupkowe.dlugoscPlatkaHistogram(dane)
-HistogramySlupkowe.szerokoscPlatkaHistogram(dane)
+HistogramySlupkowe.narysujHistogram(dane, "Długość (cm)", "Długość działki kielicha", 0)
+HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość działki kielicha", 1)
+HistogramySlupkowe.narysujHistogram(dane, "Długość (cm)", "Długość płatka", 2)
+HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość płatka", 3)
+HistogramySlupkowe.narysuj_boxplot(dane,"szerokosc", "dsds", 1)

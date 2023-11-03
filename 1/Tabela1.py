@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from FunkcjeLiczace import *
 
 
-class Wykres2:
+class Tabela1:
 
     def generuj_tabele(dane):
         maks_dlugosc_dzialki_kielicha = FunkcjeLiczace.szukajMaksimum(dane, 0)
