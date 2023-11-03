@@ -1,8 +1,5 @@
 import math
 
-import numpy as np
-
-
 class FunkcjeLiczace:
     def suma(dana, pion):
         suma = 0.0
@@ -16,6 +13,15 @@ class FunkcjeLiczace:
             if (wiersz[pion] == szukana):
                 znaleziono = znaleziono + 1
         return znaleziono
+
+    def dajKolumne(dana, pion):
+        kolumna = []
+        for wiersz in dana:
+            if pion < len(wiersz):
+                kolumna.append(wiersz[pion])
+        return kolumna
+
+
 
     def szukajMaksimum(dana, pion):
         znaleziono = 0
@@ -32,10 +38,7 @@ class FunkcjeLiczace:
         return znaleziono
 
     def liczSredniaArytmetyczna(dana, pion):
-        wartosci = [wiersz[pion] for wiersz in dana]
-
         srednia = round(FunkcjeLiczace.suma(dana, pion) / FunkcjeLiczace.sizeOf(dana), 2)
-        odchylenie_std = 0
         zsumowanie = 0.0
         for wiersz in dana:
             x = wiersz[pion] - srednia
@@ -65,3 +68,39 @@ class FunkcjeLiczace:
             if not zamiana:
                 break
         return lista
+
+    def q1(dana, pion):
+        wartosci = [wiersz[pion] for wiersz in dana]
+        sorted_numbers = sorted(wartosci)
+        n = len(sorted_numbers)
+        if n % 4 == 0:
+            return (sorted_numbers[n // 4 - 1] + sorted_numbers[n // 4]) / 2
+        else:
+            return sorted_numbers[n // 4]
+
+    def q2(dana, pion):
+        wartosci = [wiersz[pion] for wiersz in dana]
+        sorted_numbers = sorted(wartosci)
+        n = len(sorted_numbers)
+        if n % 2 == 1:
+            return sorted_numbers[n // 2]
+        else:
+            middle1 = sorted_numbers[n // 2 - 1]
+            middle2 = sorted_numbers[n // 2]
+            return (middle1 + middle2) / 2
+
+
+    def q3(dana, pion):
+        wartosci = [wiersz[pion] for wiersz in dana]
+        sorted_numbers = sorted(wartosci)
+        n = len(sorted_numbers)
+        if n % 4 == 0:
+            return (sorted_numbers[3 * n // 4 - 1] + sorted_numbers[3 * n // 4]) / 2
+        else:
+            return sorted_numbers[3 * n // 4]
+
+    def q1q2q3(dana, pion):
+        q2_value = "{:.2f}".format(FunkcjeLiczace.q2(dana, pion))
+        q1_value = "{:.2f}".format(FunkcjeLiczace.q1(dana, pion))
+        q3_value = "{:.2f}".format(FunkcjeLiczace.q3(dana, pion))
+        return "{}({} - {})".format(q2_value, q1_value, q3_value)
