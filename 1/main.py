@@ -1,4 +1,5 @@
 import csv
+import matplotlib.pyplot as plt
 from FunkcjeLiczace import *
 
 funkcje = FunkcjeLiczace
@@ -14,7 +15,6 @@ dane = []
 #    1 - versicolor
 #    2 - virginica
 
-# ładowanie danych z pliku
 with open("./data.csv", newline='') as plik_csv:
     czytnik_csv = csv.reader(plik_csv)
     for wiersz in czytnik_csv:
@@ -24,6 +24,7 @@ with open("./data.csv", newline='') as plik_csv:
 from Wykres1 import *
 from Tabela1 import *
 from HistogramySlupkowe import *
+from WykresyPudelkowe import *
 
 # generowanie tabel i wykresow
 Wykres1.generuj_wykres(dane)
@@ -33,4 +34,7 @@ HistogramySlupkowe.narysujHistogram(dane, "Długość (cm)", "Długość działk
 HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość działki kielicha", 1)
 HistogramySlupkowe.narysujHistogram(dane, "Długość (cm)", "Długość płatka", 2)
 HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość płatka", 3)
-HistogramySlupkowe.narysuj_wykres_pudelkowy(dane)
+WykresyPudelkowe.narysujBoxplot(dane, 0, "Długość działki kielicha")
+WykresyPudelkowe.narysujBoxplot(dane, 1, "Szerokość działki kielicha")
+WykresyPudelkowe.narysujBoxplot(dane, 2, "Długość płatka")
+WykresyPudelkowe.narysujBoxplot(dane, 3, "Szerokość płatka")

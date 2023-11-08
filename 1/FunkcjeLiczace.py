@@ -57,17 +57,28 @@ class FunkcjeLiczace:
     def percentage(dana, pion, szukana):
         return (FunkcjeLiczace.LiczenieWPionie(dana, pion, szukana)) * 100 / FunkcjeLiczace.sizeOf(dana)
 
-    def sortowanie_babelkowe(lista,pion):
-        n = FunkcjeLiczace.sizeOf(lista)
+    def sortowanie_babelkowe(dane,pion):
+        n = FunkcjeLiczace.sizeOf(dane)
         for i in range(n):
             zamiana = False
             for j in range(0, n - i - 1):
-                if lista[j][pion] > lista[j + 1][pion]:
-                    lista[j][pion], lista[j + 1][pion] = lista[j + 1][pion], lista[j][pion]
+                if dane[j][pion] > dane[j + 1][pion]:
+                    dane[j][pion], dane[j + 1][pion] = dane[j + 1][pion], dane[j][pion]
                     zamiana = True
             if not zamiana:
                 break
-        return lista
+        return dane
+
+    def kwartyle(dane,pion):
+        Q1 = 0.0
+        FunkcjeLiczace.sortowanie_babelkowe(dane,pion)
+        size = 0
+        size = FunkcjeLiczace.sizeOf(dane)
+        if(size%2==0):
+            Q1 = dane[math.floor(size/2)][pion]
+        if(size%2==1):
+            Q1 = dane[(size//2)+1][pion]
+        return Q1
 
     def q1(dana, pion):
         wartosci = [wiersz[pion] for wiersz in dana]
