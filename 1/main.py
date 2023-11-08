@@ -33,4 +33,4 @@ HistogramySlupkowe.narysujHistogram(dane, "Długość (cm)", "Długość działk
 HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość działki kielicha", 1)
 HistogramySlupkowe.narysujHistogram(dane, "Długość (cm)", "Długość płatka", 2)
 HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość płatka", 3)
-HistogramySlupkowe.narysuj_boxplot(dane,"szerokosc", "dsds", 1)
+HistogramySlupkowe.narysuj_wykres_pudelkowy(dane)
