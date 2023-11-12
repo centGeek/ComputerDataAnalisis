@@ -32,7 +32,7 @@ class HistogramySlupkowe:
             tick+=podanyKrok
             ticks.append(tick)
 
-        #plt.set_xticks(ticks)
+        plt.xticks(przedzialy)
         plt.bar(punkty_slupkow, histogram, width=szerokosc_slupkow, edgecolor="white", align='center')
         plt.xlabel(xlabel)
         plt.ylabel("Liczebność")
