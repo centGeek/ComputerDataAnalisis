@@ -38,3 +38,4 @@ class HistogramySlupkowe:
         plt.ylabel("Liczebność")
         plt.title(title)
         plt.show()
+
