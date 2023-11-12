@@ -22,10 +22,17 @@ class HistogramySlupkowe:
 
         return histogram, przedzialy
 
-    def narysujHistogram(dane, xlabel, title, pion):
-        histogram, przedzialy = HistogramySlupkowe.oblicz_histogram(dane, pion, krok=0.5)
+    def narysujHistogram(dane, xlabel, title, pion,podanyKrok=0.5):
+        ticks = []
+        tick = 0.0
+        histogram, przedzialy = HistogramySlupkowe.oblicz_histogram(dane, pion, podanyKrok)
         szerokosc_slupkow = [przedzialy[i + 1] - przedzialy[i] for i in range(len(przedzialy) - 1)]
         punkty_slupkow = [przedzialy[i] + szerokosc_slupkow[i] / 2 for i in range(len(przedzialy) - 1)]
+        for i in range(len(przedzialy) - 1):
+            tick+=podanyKrok
+            ticks.append(tick)
+
+        #plt.set_xticks(ticks)
         plt.bar(punkty_slupkow, histogram, width=szerokosc_slupkow, edgecolor="white", align='center')
         plt.xlabel(xlabel)
         plt.ylabel("Liczebność")
