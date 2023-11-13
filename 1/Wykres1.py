@@ -1,4 +1,3 @@
-import csv
 import matplotlib.pyplot as plt
 from FunkcjeLiczace import *
 
@@ -11,14 +10,24 @@ class Wykres1:
         virginica_count = FunkcjeLiczace.LiczenieWPionie(dane, 4, 2)
 
         fig, ax = plt.subplots()
+        napis = ["Gatunek","Liczebność(%)"]
+        setosa = ["setosa",str(setosa_count)+" ("+str(round(FunkcjeLiczace.percentage(dane,4,0),1))+"%)"]
+        versicolor = ["versicolor",str(versicolor_count)+" ("+str(round(FunkcjeLiczace.percentage(dane,4,1),1))+"%)"]
+        virginica = ["virginica", str(virginica_count)+" ("+str(round(FunkcjeLiczace.percentage(dane,4,2),1))+"%)"]
+        dol = ["Razem" , str(FunkcjeLiczace.sizeOf(dane))+" (" +str(round((FunkcjeLiczace.sizeOf(dane)/FunkcjeLiczace.sizeOf(dane)),2)*100)+"%)"]
 
-        x = ["setosa", "versicolor", "virginica"]
-        counts = [setosa_count, versicolor_count, virginica_count]
-        percentages = [(count * 100 / sum(counts)) for count in counts]
+        data = [napis,setosa,versicolor,virginica,dol]
 
-        ax.bar(x, counts, width=0.5, edgecolor="white", linewidth=0.7, color='red')
-        ax.set_ylabel("Liczba poszczególnych gatunków")
-        for i, v in enumerate(counts):
-            ax.text(i, v + 5, f"{percentages[i]:.2f}%", ha="center", va="bottom")
+        # Tworzenie wykresu
+        fig, ax = plt.subplots(figsize=(10, 6))
+        # Tworzenie tabeli
+        table = ax.table(cellText=data, loc='center')
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        table.scale(1, 1.5)
+
+        table.auto_set_column_width([0, 1, 2, 3, 4])
+
+        ax.axis('off')
 
         plt.show()

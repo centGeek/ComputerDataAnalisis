@@ -30,5 +30,4 @@ class WykresyPudelkowe:
         plt.boxplot(data,labels=gatunki)
         plt.grid(axis='y', color="grey")
         plt.title(Nazwa)
-
-        #plt.show()
+        plt.show()

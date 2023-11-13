@@ -2,6 +2,8 @@ import csv
 import matplotlib.pyplot as plt
 from FunkcjeLiczace import *
 
+
+
 funkcje = FunkcjeLiczace
 
 dane = []
@@ -33,10 +35,10 @@ Tabela1.generuj_tabele(dane)
 HistogramySlupkowe.narysujHistogram(dane, "Długość (cm)", "Długość działki kielicha", 0)
 HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość działki kielicha", 1)
 HistogramySlupkowe.narysujHistogram(dane, "Długość (cm)", "Długość płatka", 2)
-HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość płatka", 3,0.2)
+HistogramySlupkowe.narysujHistogram(dane, "Szerokość (cm)", "Szerokość płatka", 3, 0.2)
 
 WykresyPudelkowe.narysujBoxplot(dane, 0, "Długość działki kielicha")
 WykresyPudelkowe.narysujBoxplot(dane, 1, "Szerokość działki kielicha")
 WykresyPudelkowe.narysujBoxplot(dane, 2, "Długość płatka")
 WykresyPudelkowe.narysujBoxplot(dane, 3, "Szerokość płatka")
-plt.show()
+#plt.show()

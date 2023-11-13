@@ -21,15 +21,15 @@ class Tabela1:
         dlugosc_platka_medi = FunkcjeLiczace.q1q2q3(dane, 2)
         szerokosc_platka_medi = FunkcjeLiczace.q1q2q3(dane, 3)
 
-        print(dane[0][0])
-        print(FunkcjeLiczace.suma(dane, 0))
-        dlugosc_dzialki_avg = FunkcjeLiczace.liczSredniaArytmetyczna(dane, 0)
-        szerokosc_dzialki_avg = FunkcjeLiczace.liczSredniaArytmetyczna(dane, 1)
-        dlugosc_platka_avg = FunkcjeLiczace.liczSredniaArytmetyczna(dane, 2)
-        szerokosc_platka_avg = FunkcjeLiczace.liczSredniaArytmetyczna(dane, 2)
+        #print(dane[0][0])
+        #print(FunkcjeLiczace.suma(dane, 0))
+        dlugosc_dzialki_avg = FunkcjeLiczace.sredniaodchylenie(dane, 0)
+        szerokosc_dzialki_avg = FunkcjeLiczace.sredniaodchylenie(dane, 1)
+        dlugosc_platka_avg = FunkcjeLiczace.sredniaodchylenie(dane, 2)
+        szerokosc_platka_avg = FunkcjeLiczace.sredniaodchylenie(dane, 3)
 
         data = [
-            ["Cecha", "Minimum", "Śr. arytmetyczna", "Mediana (Q1 - Q3)", "Maksimum"],
+            ["Cecha", "Minimum", "Śr. arytmetyczna(± odch. stand.)", "Mediana (Q1 - Q3)", "Maksimum"],
             ["Długość działki kielicha (cm)", min_dlugosc_dzialki_kielicha, dlugosc_dzialki_avg, dlugosc_dzialki_medi,
              maks_dlugosc_dzialki_kielicha],
             ["Szerokość działki kielicha (cm)", min_szerokosc_dzialki_kielicha, szerokosc_dzialki_avg,

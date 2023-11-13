@@ -1,5 +1,6 @@
 import math
 
+
 class FunkcjeLiczace:
     def suma(dana, pion):
         suma = 0.0
@@ -20,8 +21,6 @@ class FunkcjeLiczace:
             if pion < len(wiersz):
                 kolumna.append(wiersz[pion])
         return kolumna
-
-
 
     def szukajMaksimum(dana, pion):
         znaleziono = 0
@@ -44,8 +43,8 @@ class FunkcjeLiczace:
             x = wiersz[pion] - srednia
             x = x * x
             zsumowanie = zsumowanie + x
-        zsumowanie = zsumowanie/FunkcjeLiczace.sizeOf(dana)
-        zsumowanie = round(math.sqrt(zsumowanie),2)
+        zsumowanie = zsumowanie / FunkcjeLiczace.sizeOf(dana)
+        zsumowanie = round(math.sqrt(zsumowanie), 2)
         return srednia, zsumowanie
 
     def sizeOf(dana):
@@ -57,7 +56,7 @@ class FunkcjeLiczace:
     def percentage(dana, pion, szukana):
         return (FunkcjeLiczace.LiczenieWPionie(dana, pion, szukana)) * 100 / FunkcjeLiczace.sizeOf(dana)
 
-    def sortowanie_babelkowe(dane,pion):
+    def sortowanie_babelkowe(dane, pion):
         n = FunkcjeLiczace.sizeOf(dane)
         for i in range(n):
             zamiana = False
@@ -69,15 +68,15 @@ class FunkcjeLiczace:
                 break
         return dane
 
-    def kwartyle(dane,pion):
+    def kwartyle(dane, pion):
         Q1 = 0.0
-        FunkcjeLiczace.sortowanie_babelkowe(dane,pion)
+        FunkcjeLiczace.sortowanie_babelkowe(dane, pion)
         size = 0
         size = FunkcjeLiczace.sizeOf(dane)
-        if(size%2==0):
-            Q1 = dane[math.floor(size/2)][pion]
-        if(size%2==1):
-            Q1 = dane[(size//2)+1][pion]
+        if (size % 2 == 0):
+            Q1 = dane[math.floor(size / 2)][pion]
+        if (size % 2 == 1):
+            Q1 = dane[(size // 2) + 1][pion]
         return Q1
 
     def q1(dana, pion):
@@ -100,7 +99,6 @@ class FunkcjeLiczace:
             middle2 = sorted_numbers[n // 2]
             return (middle1 + middle2) / 2
 
-
     def q3(dana, pion):
         wartosci = [wiersz[pion] for wiersz in dana]
         sorted_numbers = sorted(wartosci)
@@ -114,4 +112,10 @@ class FunkcjeLiczace:
         q2_value = "{:.2f}".format(FunkcjeLiczace.q2(dana, pion))
         q1_value = "{:.2f}".format(FunkcjeLiczace.q1(dana, pion))
         q3_value = "{:.2f}".format(FunkcjeLiczace.q3(dana, pion))
-        return "{}({} - {})".format(q2_value, q1_value, q3_value)
+        return "{} ({} - {})".format(q2_value, q1_value, q3_value)
+
+    def sredniaodchylenie(dana, pion):
+        srednia, odchylenie = FunkcjeLiczace.liczSredniaArytmetyczna(dana, pion)
+        sred_value = "{:.2f}".format(srednia)
+        odchyl_value = "{:.2f}".format(odchylenie)
+        return "{} (±{})".format(sred_value,odchyl_value)
