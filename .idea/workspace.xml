@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d6d6e59-11b6-45c9-b61f-e153eb5d4441" name="Changes" comment="Dodano linie pomocnicze do wykresów pudełkowych dzięki czemu łatwiej analizować dane">
+    <list default="true" id="1d6d6e59-11b6-45c9-b61f-e153eb5d4441" name="Changes" comment="Chodźmy płakać">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1/FunkcjeLiczace.py" beforeDir="false" afterPath="$PROJECT_DIR$/1/FunkcjeLiczace.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/HistogramySlupkowe.py" beforeDir="false" afterPath="$PROJECT_DIR$/1/HistogramySlupkowe.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1/Tabela1.py" beforeDir="false" afterPath="$PROJECT_DIR$/1/Tabela1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1/Wykres1.py" beforeDir="false" afterPath="$PROJECT_DIR$/1/Wykres1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1/WykresyPudelkowe.py" beforeDir="false" afterPath="$PROJECT_DIR$/1/WykresyPudelkowe.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/1/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +43,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maciek/Desktop/Studia/sem3/KAD/ComputerDataAnalisis/venv&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maciek/Desktop/Studia/sem3/KAD/1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -100,7 +100,8 @@
       <workItem from="1699435129566" duration="3429000" />
       <workItem from="1699439179005" duration="1477000" />
       <workItem from="1699818788283" duration="634000" />
-      <workItem from="1699903540636" duration="11443000" />
+      <workItem from="1699903540636" duration="13645000" />
+      <workItem from="1699919485947" duration="3631000" />
     </task>
     <task id="LOCAL-00001" summary="kzjvdkjseahgfljsaehflksea">
       <option name="closed" value="true" />
@@ -150,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699819260470</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Chodźmy płakać">
+      <option name="closed" value="true" />
+      <created>1699916763646</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699916763646</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,9 +184,21 @@
     <MESSAGE value="Funkcja Sortowania" />
     <MESSAGE value="Boxowe Wyrkesy Dodane, nawet się rysują" />
     <MESSAGE value="Dodano linie pomocnicze do wykresów pudełkowych dzięki czemu łatwiej analizować dane" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano linie pomocnicze do wykresów pudełkowych dzięki czemu łatwiej analizować dane" />
+    <MESSAGE value="Chodźmy płakać" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chodźmy płakać" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/1/Wykres1.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ComputerDataAnalisis$main.coverage" NAME="main Coverage Results" MODIFIED="1699913966164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1" />
+    <SUITE FILE_PATH="coverage/ComputerDataAnalisis$main.coverage" NAME="main Coverage Results" MODIFIED="1699923122593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1" />
   </component>
 </project>

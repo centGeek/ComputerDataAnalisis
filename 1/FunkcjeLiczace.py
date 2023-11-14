@@ -36,6 +36,20 @@ class FunkcjeLiczace:
                 znaleziono = wiersz[pion]
         return znaleziono
 
+    def szukajMinimumJednowymiar(dana):
+        znaleziono = 100
+        for wiersz in dana:
+            if (wiersz < znaleziono):
+                znaleziono = wiersz
+        return znaleziono
+
+    def szukajMaksimumJednowymiarowe(dana):
+        znaleziono = 0
+        for wiersz in dana:
+            if (wiersz > znaleziono):
+                znaleziono = wiersz
+        return znaleziono
+
     def liczSredniaArytmetyczna(dana, pion):
         srednia = round(FunkcjeLiczace.suma(dana, pion) / FunkcjeLiczace.sizeOf(dana), 2)
         zsumowanie = 0.0
@@ -118,4 +132,12 @@ class FunkcjeLiczace:
         srednia, odchylenie = FunkcjeLiczace.liczSredniaArytmetyczna(dana, pion)
         sred_value = "{:.2f}".format(srednia)
         odchyl_value = "{:.2f}".format(odchylenie)
-        return "{} (±{})".format(sred_value,odchyl_value)
+        return "{} (±{})".format(sred_value, odchyl_value)
+
+    def dajTylkoGatunku(dane, pion, cyfraGatunku):
+        kolumna = []
+        for wiersz in dane:
+            if pion < len(wiersz):
+                if (wiersz[4] == cyfraGatunku):
+                    kolumna.append(wiersz[pion])
+        return kolumna

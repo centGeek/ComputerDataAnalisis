@@ -21,8 +21,7 @@ class Tabela1:
         dlugosc_platka_medi = FunkcjeLiczace.q1q2q3(dane, 2)
         szerokosc_platka_medi = FunkcjeLiczace.q1q2q3(dane, 3)
 
-        #print(dane[0][0])
-        #print(FunkcjeLiczace.suma(dane, 0))
+
         dlugosc_dzialki_avg = FunkcjeLiczace.sredniaodchylenie(dane, 0)
         szerokosc_dzialki_avg = FunkcjeLiczace.sredniaodchylenie(dane, 1)
         dlugosc_platka_avg = FunkcjeLiczace.sredniaodchylenie(dane, 2)

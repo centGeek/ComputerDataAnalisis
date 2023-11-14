@@ -9,7 +9,6 @@ class Wykres1:
         versicolor_count = FunkcjeLiczace.LiczenieWPionie(dane, 4, 1)
         virginica_count = FunkcjeLiczace.LiczenieWPionie(dane, 4, 2)
 
-        fig, ax = plt.subplots()
         napis = ["Gatunek","Liczebność(%)"]
         setosa = ["setosa",str(setosa_count)+" ("+str(round(FunkcjeLiczace.percentage(dane,4,0),1))+"%)"]
         versicolor = ["versicolor",str(versicolor_count)+" ("+str(round(FunkcjeLiczace.percentage(dane,4,1),1))+"%)"]

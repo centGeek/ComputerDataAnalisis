@@ -22,14 +22,14 @@ class HistogramySlupkowe:
 
         return histogram, przedzialy
 
-    def narysujHistogram(dane, xlabel, title, pion,podanyKrok=0.5):
+    def narysujHistogram(dane, xlabel, title, pion, podanyKrok=0.5):
         ticks = []
         tick = 0.0
         histogram, przedzialy = HistogramySlupkowe.oblicz_histogram(dane, pion, podanyKrok)
         szerokosc_slupkow = [przedzialy[i + 1] - przedzialy[i] for i in range(len(przedzialy) - 1)]
         punkty_slupkow = [przedzialy[i] + szerokosc_slupkow[i] / 2 for i in range(len(przedzialy) - 1)]
         for i in range(len(przedzialy) - 1):
-            tick+=podanyKrok
+            tick += podanyKrok
             ticks.append(tick)
 
         plt.xticks(przedzialy)
@@ -39,3 +39,20 @@ class HistogramySlupkowe:
         plt.title(title)
         plt.show()
 
+    def narysujHistogram2(dane, xlabel, title, pion, lewy, prawy, bins):
+
+        daneDoHistogramu0 = FunkcjeLiczace.dajTylkoGatunku(dane, pion, 0)
+        daneDoHistogramu1 = FunkcjeLiczace.dajTylkoGatunku(dane, pion, 1)
+        daneDoHistogramu2 = FunkcjeLiczace.dajTylkoGatunku(dane, pion, 2)
+
+
+        plt.hist(daneDoHistogramu0, range=[lewy, prawy], bins=bins, alpha=0.5, edgecolor='white')
+        plt.hist(daneDoHistogramu1, range=[lewy, prawy], bins=bins, alpha=0.5, edgecolor='white')
+        plt.hist(daneDoHistogramu2, range=[lewy, prawy], bins=bins, alpha=0.5, edgecolor='white')
+
+        # plt.hist((daneDoHistogramu0,daneDoHistogramu1,daneDoHistogramu2),bins=10,histtype='step')
+
+        plt.xlabel(xlabel)
+        plt.ylabel('Liczebność')
+        plt.title(title)
+        plt.show()
