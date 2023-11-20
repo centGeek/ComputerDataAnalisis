@@ -1,5 +1,6 @@
 import csv
 from FunkcjeLiczace import *
+import matplotlib.pyplot as plt
 dane = []
 
 with open("./data.csv", newline='') as plik_csv:
@@ -20,7 +21,14 @@ for wiersz in dane:
     sum += lewy - prawy
 sum_n = sum / n
 
+pion_x = FunkcjeLiczace.dajKolumne(dane,0)
+pion_y = FunkcjeLiczace.dajKolumne(dane,1)
+
 wynik = sum_n / (x_odch * y_odch)
 
+plt.scatter(pion_x,pion_y, c=pion_x)
+plt.plot([169, 189], [7.23, 11.48])
+#plt.xlim(0, 1)
 
+plt.show()
 print(wynik)

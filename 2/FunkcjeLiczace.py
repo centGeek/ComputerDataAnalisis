@@ -51,14 +51,14 @@ class FunkcjeLiczace:
         return znaleziono
 
     def liczSredniaArytmetyczna(dana, pion):
-        srednia = round(FunkcjeLiczace.suma(dana, pion) / FunkcjeLiczace.sizeOf(dana), 2)
+        srednia = round(FunkcjeLiczace.suma(dana, pion) / FunkcjeLiczace.sizeOf(dana), 10)
         zsumowanie = 0.0
         for wiersz in dana:
             x = wiersz[pion] - srednia
             x = x * x
             zsumowanie = zsumowanie + x
         zsumowanie = zsumowanie / FunkcjeLiczace.sizeOf(dana)
-        zsumowanie = round(math.sqrt(zsumowanie), 2)
+        zsumowanie = round(math.sqrt(zsumowanie), 10)
         return srednia, zsumowanie
 
     def sizeOf(dana):

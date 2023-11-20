@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d6d6e59-11b6-45c9-b61f-e153eb5d4441" name="Changes" comment="gówno">
-      <change beforePath="$PROJECT_DIR$/1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/1/main.py" afterDir="false" />
+    <list default="true" id="1d6d6e59-11b6-45c9-b61f-e153eb5d4441" name="Changes" comment="halo?">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/FunkcjeLiczace.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/FunkcjeLiczace.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/2/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/main2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main2">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ComputerDataAnalisis" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,6 +73,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main2" type="PythonConfigurationType" factoryName="Python">
+      <module name="ComputerDataAnalisis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2/main2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main2" />
+      <item itemvalue="Python.main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
@@ -97,6 +126,7 @@
       <workItem from="1699818788283" duration="634000" />
       <workItem from="1699903540636" duration="13645000" />
       <workItem from="1699919485947" duration="4452000" />
+      <workItem from="1699955657620" duration="4118000" />
     </task>
     <task id="LOCAL-00001" summary="kzjvdkjseahgfljsaehflksea">
       <option name="closed" value="true" />
@@ -170,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699923300621</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="halo?">
+      <option name="closed" value="true" />
+      <created>1699955714212</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699955714212</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +236,8 @@
     <MESSAGE value="Chodźmy płakać" />
     <MESSAGE value="RepetenciZKada:D" />
     <MESSAGE value="gówno" />
-    <option name="LAST_COMMIT_MESSAGE" value="gówno" />
+    <MESSAGE value="halo?" />
+    <option name="LAST_COMMIT_MESSAGE" value="halo?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -212,6 +251,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ComputerDataAnalisis$main.coverage" NAME="main Coverage Results" MODIFIED="1699923265520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1" />
+    <SUITE FILE_PATH="coverage/ComputerDataAnalisis$main2.coverage" NAME="main2 Coverage Results" MODIFIED="1699966959762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2" />
+    <SUITE FILE_PATH="coverage/ComputerDataAnalisis$main.coverage" NAME="main Coverage Results" MODIFIED="1699958582692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1" />
   </component>
 </project>
