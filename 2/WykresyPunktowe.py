@@ -33,8 +33,8 @@ class WykresyPunktowe:
     def liczymy_r(dane, pion_x, pion_y):
         n = FunkcjeLiczace.sizeOf(dane)
 
-        x_av, x_odch = FunkcjeLiczace.liczSredniaArytmetyczna(dane, 0)
-        y_av, y_odch = FunkcjeLiczace.liczSredniaArytmetyczna(dane, 1)
+        x_av, x_odch = FunkcjeLiczace.liczSredniaArytmetyczna(dane, pion_x)
+        y_av, y_odch = FunkcjeLiczace.liczSredniaArytmetyczna(dane, pion_y)
 
         sum = 0
         for wiersz in dane:
