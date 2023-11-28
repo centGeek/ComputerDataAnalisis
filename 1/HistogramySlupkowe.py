@@ -50,7 +50,6 @@ class HistogramySlupkowe:
         plt.hist(daneDoHistogramu1, range=[lewy, prawy], bins=bins, alpha=0.5, edgecolor='white')
         plt.hist(daneDoHistogramu2, range=[lewy, prawy], bins=bins, alpha=0.5, edgecolor='white')
 
-        # plt.hist((daneDoHistogramu0,daneDoHistogramu1,daneDoHistogramu2),bins=10,histtype='step')
 
         plt.xlabel(xlabel)
         plt.ylabel('Liczebność')

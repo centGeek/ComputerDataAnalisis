@@ -36,19 +36,6 @@ class FunkcjeLiczace:
                 znaleziono = wiersz[pion]
         return znaleziono
 
-    def szukajMinimumJednowymiar(dana):
-        znaleziono = 100
-        for wiersz in dana:
-            if (wiersz < znaleziono):
-                znaleziono = wiersz
-        return znaleziono
-
-    def szukajMaksimumJednowymiarowe(dana):
-        znaleziono = 0
-        for wiersz in dana:
-            if (wiersz > znaleziono):
-                znaleziono = wiersz
-        return znaleziono
 
     def liczSredniaArytmetyczna(dana, pion):
         srednia = round(FunkcjeLiczace.suma(dana, pion) / FunkcjeLiczace.sizeOf(dana), 2)
@@ -72,40 +59,25 @@ class FunkcjeLiczace:
 
     def sortowanie_babelkowe(dane, pion):
         n = FunkcjeLiczace.sizeOf(dane)
+        kolumna = FunkcjeLiczace.dajKolumne(dane, pion)
         for i in range(n):
-            zamiana = False
             for j in range(0, n - i - 1):
-                if dane[j][pion] > dane[j + 1][pion]:
-                    dane[j][pion], dane[j + 1][pion] = dane[j + 1][pion], dane[j][pion]
-                    zamiana = True
-            if not zamiana:
-                break
-        return dane
+                if kolumna[j] > kolumna[j + 1]:
+                    kolumna[j], kolumna[j + 1] = kolumna[j + 1], kolumna[j]
+        return [row[pion] for row in dane]
 
-    def kwartyle(dane, pion):
-        Q1 = 0.0
-        FunkcjeLiczace.sortowanie_babelkowe(dane, pion)
-        size = 0
-        size = FunkcjeLiczace.sizeOf(dane)
-        if (size % 2 == 0):
-            Q1 = dane[math.floor(size / 2)][pion]
-        if (size % 2 == 1):
-            Q1 = dane[(size // 2) + 1][pion]
-        return Q1
 
     def q1(dana, pion):
-        wartosci = [wiersz[pion] for wiersz in dana]
-        sorted_numbers = sorted(wartosci)
-        n = len(sorted_numbers)
+        sorted_numbers =FunkcjeLiczace.sortowanie_babelkowe(dana, pion)
+        n = FunkcjeLiczace.sizeOf(sorted_numbers)
         if n % 4 == 0:
             return (sorted_numbers[n // 4 - 1] + sorted_numbers[n // 4]) / 2
         else:
             return sorted_numbers[n // 4]
 
     def q2(dana, pion):
-        wartosci = [wiersz[pion] for wiersz in dana]
-        sorted_numbers = sorted(wartosci)
-        n = len(sorted_numbers)
+        sorted_numbers =FunkcjeLiczace.sortowanie_babelkowe(dana, pion)
+        n =  FunkcjeLiczace.sizeOf(sorted_numbers)
         if n % 2 == 1:
             return sorted_numbers[n // 2]
         else:
@@ -114,9 +86,9 @@ class FunkcjeLiczace:
             return (middle1 + middle2) / 2
 
     def q3(dana, pion):
-        wartosci = [wiersz[pion] for wiersz in dana]
-        sorted_numbers = sorted(wartosci)
-        n = len(sorted_numbers)
+        sorted_numbers =FunkcjeLiczace.sortowanie_babelkowe(dana, pion)
+        n = FunkcjeLiczace.sizeOf(sorted_numbers)
+
         if n % 4 == 0:
             return (sorted_numbers[3 * n // 4 - 1] + sorted_numbers[3 * n // 4]) / 2
         else:
