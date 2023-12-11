@@ -20,7 +20,12 @@ class WykresyPunktowe:
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
         plt.plot([x_min, x_max], [a * x_min + b, a * x_max + b], color='blue', label=f"y = {round(a, 1)}x + {round(b, 1)}")
-        plt.title(f"r = {wynik:.2f}; y = {round(a, 1)}x + {round(b, 1)}")
+        if round(b, 1) > 0:
+            wyrazenie = "+"
+        else:
+            wyrazenie = "-"
+
+        plt.title(f"r = {wynik:.2f}; y = {round(a, 1)}x {wyrazenie} {abs(round(b, 1))}")
         plt.xticks()
 
 
