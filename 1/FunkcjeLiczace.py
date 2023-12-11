@@ -37,16 +37,16 @@ class FunkcjeLiczace:
         return znaleziono
 
 
-    def liczSredniaArytmetyczna(dana, pion):
+    def liczSredniaArytmetycznaIOdchylenie(dana, pion):
         srednia = round(FunkcjeLiczace.suma(dana, pion) / FunkcjeLiczace.sizeOf(dana), 2)
-        zsumowanie = 0.0
+        odchylenie = 0.0
         for wiersz in dana:
             x = wiersz[pion] - srednia
             x = x * x
-            zsumowanie = zsumowanie + x
-        zsumowanie = zsumowanie / FunkcjeLiczace.sizeOf(dana)
-        zsumowanie = round(math.sqrt(zsumowanie), 2)
-        return srednia, zsumowanie
+            odchylenie = odchylenie + x
+        odchylenie = odchylenie / FunkcjeLiczace.sizeOf(dana)
+        odchylenie = round(math.sqrt(odchylenie), 2)
+        return srednia, odchylenie
 
     def sizeOf(dana):
         size = 0
@@ -101,7 +101,7 @@ class FunkcjeLiczace:
         return "{} ({} - {})".format(q2_value, q1_value, q3_value)
 
     def sredniaodchylenie(dana, pion):
-        srednia, odchylenie = FunkcjeLiczace.liczSredniaArytmetyczna(dana, pion)
+        srednia, odchylenie = FunkcjeLiczace.liczSredniaArytmetycznaIOdchylenie(dana, pion)
         sred_value = "{:.2f}".format(srednia)
         odchyl_value = "{:.2f}".format(odchylenie)
         return "{} (±{})".format(sred_value, odchyl_value)
