@@ -1,4 +1,5 @@
 import pandas as pd
+import tabulate
 from matplotlib import pyplot as plt
 import kmeans
 import seaborn as sns
@@ -123,16 +124,24 @@ def wybor_najlepsze_k(lista_sukces_procent):
     return lista_ciagow[maksymalna_dlugosc_indeks][0] + 1
 
 
-def rysuj_tabelke(k):
-    print(f"\nk = {k}     Rozpoznanie --->\n   Faktyczna klasa v ")
-
-    data = {'': ['Setosa', 'Versicolor', 'Virginica']}
+def rysuj_tabelke(k, parametr1, parametr2,  czyDlaCzterech):
+    listy_z_wynikami_kolumna = []
+    listy_z_wynikami_wiersze = []
     for i in range(ile_gatunkow):
-        data[nazwy_kolumn[-1][i]] = macierz_pomylek[i]
+        for j in range(ile_gatunkow):
+            listy_z_wynikami_kolumna.append(macierz_pomylek[i][j])
+        listy_z_wynikami_wiersze.append(listy_z_wynikami_kolumna.copy())
+        listy_z_wynikami_kolumna = []
 
-    df = pd.DataFrame(data)
-    print(df.to_string(index=False))
-
+    tabelka_do_wyswietlenia = {
+        "k = " + str(k) + "     Rozpoznanie --->\n   Faktyczna klasa v ": ["Setosa", "Versicolor", "Virginica"],
+        "Setosa": listy_z_wynikami_wiersze[0], "Versicolor": listy_z_wynikami_wiersze[1],
+        "Virginica": listy_z_wynikami_wiersze[2]}
+    if czyDlaCzterech:
+        print("Dla czterech parametrow")
+    else:
+        print(nazwy_kolumn[parametr1] + " i " + nazwy_kolumn[parametr2])
+    print(tabulate.tabulate(tabelka_do_wyswietlenia, headers="keys", tablefmt="fancy_grid", showindex=False))
     czyszczenie_macierzy_pomylek()
 
 def rysuj(czy_dla_czterech, parametr1, parametr2):
@@ -176,7 +185,7 @@ def rysuj(czy_dla_czterech, parametr1, parametr2):
     plt.plot(range(1, 16), lista_sukces_procent)
     plt.xlabel('k')
     plt.ylabel('Wynik [%]')
-    rysuj_tabelke(najlepsze_k)
+    rysuj_tabelke(najlepsze_k, parametr1, parametr2,czy_dla_czterech)
     plt.show()
     czyszczenie_macierzy_pomylek()
     czyszczenie_output()
