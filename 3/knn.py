@@ -2,12 +2,6 @@ def scaling(minimum, maksimum, argument):
     return (argument - minimum) / (maksimum - minimum) #normalizacja min max dla zakresu <0;1>
 
 
-def distance_for_two(x1, x2, y1, y2):
-    return (((x1 - x2) ** 2) + ((y1 - y2) ** 2)) ** 0.5
-
-
-def distance_for_four(x1, x2, y1, y2, z1, z2, v1, v2):
-    return (((x1 - x2) ** 2) + ((y1 - y2) ** 2) + ((z1 - z2) ** 2) + ((v1 - v2) ** 2)) ** 0.5
 
 
 def distance_list_for_two(trening_1, test_1, trening_2, test_2):
@@ -35,12 +29,19 @@ def check_species_number(lista): #sprawdzenie ile jest roznych gatunkow
     return len(list_of_num_differences)
 
 
+def distance_for_two(x1, x2, y1, y2):
+    return (((x1 - x2) ** 2) + ((y1 - y2) ** 2)) ** 0.5
+
+
+def distance_for_four(x1, x2, y1, y2, z1, z2, v1, v2):
+    return (((x1 - x2) ** 2) + ((y1 - y2) ** 2) + ((z1 - z2) ** 2) + ((v1 - v2) ** 2)) ** 0.5
+
 def knn(list_of_distances, list_of_species, k):
     indexes_that_are_closest = []
     num_for_species = []
     for i in range(check_species_number(list_of_species)): #wypełnienie listy ile jest możliwych gatunków
         num_for_species.append(0)
-    for i in range(k):                                    #wypełnienie tablicy tak, żeby było k elementów, działamy na indeksach, które mają odniesienie do listy odległości
+    for i in range(k):                            #wypełnienie tablicy tak, żeby było k elementów, działamy na indeksach, które mają odniesienie do listy odległości
         indexes_that_are_closest.append(i)
     for i in range(k - 1):
         for j in range(k - i - 1):
